@@ -1,11 +1,17 @@
 import React, { Component } from 'react';
 import './app.css';
+import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import Home from './pages/Home.js';
+import Login from './pages/Login.js';
+import Dashboard from './pages/Dashboard.js';
 
 export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      message: null
+      message: null,
+      isAuthenticated: false,
+      username: null
     }
   }
 
@@ -15,13 +21,33 @@ export default class App extends Component {
       .then(res => this.setState({ message: res.message }));
   }
 
+  login = (cred) => {
+    this.setState({username: cred.username, isAuthenticated: true});
+  }
+
   render() {
-    const { message } = this.state;
+    const { message, isAuthenticated, username } = this.state;
+    console.log(username);
     return (
-      <div>
-        <h1>Pied Piper</h1>
-        {message ? <h1>{`Message received: ${message}`}</h1> : <h1>Loading.. please wait!</h1>}
-      </div>
+      <BrowserRouter>
+        <Switch>
+          <Route
+            path='/'
+            exact={true}
+            render={(props) => !isAuthenticated ? <Home message={message} {...props} /> : <Redirect to='/dashboard' />}
+          />
+          <Route
+            path='/dashboard'
+            exact={true}
+            render={(props) => isAuthenticated ? <Dashboard {...props} /> : <Redirect to='/login' />}
+          />
+          <Route
+            path='/login'
+            exact={true}
+            render={(props) => !isAuthenticated ? <Login login={this.login} {...props} /> : <Redirect to='/dashboard' />}
+          />
+        </Switch>
+      </BrowserRouter>
     );
   }
 }
