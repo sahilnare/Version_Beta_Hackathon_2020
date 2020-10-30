@@ -1,9 +1,13 @@
 import React, { Component } from 'react';
 import './app.css';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
-import Home from './pages/Home.js';
-import Login from './pages/Login.js';
-import Dashboard from './pages/Dashboard.js';
+
+import Home from './pages/Home';
+import Login from './pages/Login';
+import Dashboard from './pages/Dashboard';
+
+import Navbar from "./components/Navbar";
+// import Footer from "./components/Footer";
 
 export default class App extends Component {
   constructor() {
@@ -29,25 +33,28 @@ export default class App extends Component {
     const { message, isAuthenticated, username } = this.state;
     console.log(username);
     return (
-      <BrowserRouter>
-        <Switch>
-          <Route
-            path='/'
-            exact={true}
-            render={(props) => !isAuthenticated ? <Home message={message} {...props} /> : <Redirect to='/dashboard' />}
-          />
-          <Route
-            path='/dashboard'
-            exact={true}
-            render={(props) => isAuthenticated ? <Dashboard {...props} /> : <Redirect to='/login' />}
-          />
-          <Route
-            path='/login'
-            exact={true}
-            render={(props) => !isAuthenticated ? <Login login={this.login} {...props} /> : <Redirect to='/dashboard' />}
-          />
-        </Switch>
-      </BrowserRouter>
+      <div className="App">
+        <BrowserRouter>
+          <Navbar />
+          <Switch>
+            <Route
+              path='/'
+              exact={true}
+              render={(props) => !isAuthenticated ? <Home message={message} {...props} /> : <Redirect to='/dashboard' />}
+            />
+            <Route
+              path='/dashboard'
+              exact={true}
+              render={(props) => isAuthenticated ? <Dashboard {...props} /> : <Redirect to='/login' />}
+            />
+            <Route
+              path='/login'
+              exact={true}
+              render={(props) => !isAuthenticated ? <Login login={this.login} {...props} /> : <Redirect to='/dashboard' />}
+            />
+          </Switch>
+        </BrowserRouter>
+      </div>
     );
   }
 }
