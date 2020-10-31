@@ -1,6 +1,6 @@
 import React from "react";
 import { withRouter } from "react-router-dom";
-// import DarkToggle from "../components/darktoggle"
+import DarkToggle from "../components/darktoggle"
 
 const NavBar = ({ history }) => {
 	const url = String(history.location.pathname);
@@ -66,7 +66,7 @@ const NavBar = ({ history }) => {
 					</React.Fragment>
 				)}
 			</div>
-			{/*<DarkToggle/>*/}
+			{<DarkToggle/>}
 		</div>
 	);
 };
