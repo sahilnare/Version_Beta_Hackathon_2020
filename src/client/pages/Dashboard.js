@@ -43,13 +43,20 @@ class Dashboard extends Component {
     			"Patients can book online appointments with a specific doctor and can get prescription afterwards.",
     		link: "/dashboard/appointment",
     	},
+      {
+    		title: "Covid Detection by Cough",
+    		image: require("../assets/icons/covid.png"),
+    		imageAlt: "Earth Icon",
+    		desc: "Patients can know whether they have a probabilty of having Covid-19 by recording their coughing audio.",
+    		link: "/dashboard/covid",
+    	},
     ];
 
     return (
       <React.Fragment>
         <div className="Dashboard">
     			<div className="container">
-    				<h1>Hi Sahil</h1>
+    				<h1>Hi {this.props.user.name}</h1>
     				<div className="cards">
     					{services.map(({ imageAlt, title, image, desc, link }) => (
     						<Card

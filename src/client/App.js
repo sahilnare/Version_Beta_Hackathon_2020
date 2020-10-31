@@ -9,6 +9,7 @@ import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Chatbot from './pages/features/Chatbot';
 import DoctorChat from './pages/features/DoctorChat';
+import Covid from './pages/features/Covid';
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -19,7 +20,7 @@ export default class App extends Component {
     this.state = {
       message: '',
       isAuthenticated: false,
-      username: '',
+      user: '',
       errors: ''
     }
   }
@@ -34,7 +35,7 @@ export default class App extends Component {
       }
     }).then(res => {
       console.log(res.data);
-      this.setState({isAuthenticated: true});
+      this.setState({user: res.data, isAuthenticated: true});
     }).catch(err => {
       console.log(err.response.data);
     });
@@ -45,16 +46,15 @@ export default class App extends Component {
   }
 
   logout = () => {
-    this.setState({username: null, isAuthenticated: false});
+    this.setState({user: null, isAuthenticated: false});
   }
 
   render() {
     const { message, isAuthenticated, username } = this.state;
-    console.log(username);
     return (
       <div className="App">
         <BrowserRouter>
-          <Navbar logout={this.logout} />
+          <Navbar logout={this.logout} user={this.state.user} logout={this.logout} />
           <Switch>
             <Route
               path='/'
@@ -72,9 +72,14 @@ export default class App extends Component {
               render={(props) => isAuthenticated ? <DoctorChat {...props} /> : <Redirect to='/login' />}
             />
             <Route
+              path='/dashboard/covid'
+              exact={true}
+              render={(props) => isAuthenticated ? <Covid {...props} /> : <Redirect to='/login' />}
+            />
+            <Route
               path='/dashboard'
               exact={true}
-              render={(props) => isAuthenticated ? <Dashboard {...props} /> : <Redirect to='/login' />}
+              render={(props) => isAuthenticated ? <Dashboard user={this.state.user} {...props} /> : <Redirect to='/login' />}
             />
             <Route
               path='/login'

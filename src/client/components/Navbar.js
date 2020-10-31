@@ -2,14 +2,12 @@ import React from "react";
 import { withRouter } from "react-router-dom";
 // import DarkToggle from "../components/darktoggle";
 
-const NavBar = ({ history }) => {
+const NavBar = ({ history, user, logout }) => {
 	const url = String(history.location.pathname);
 
 	const logOut = () => {
-		this.props.logout();
+		logout();
 	};
-
-  const user = null;
 
 	return (
 		<div className="NavBar">
@@ -27,11 +25,7 @@ const NavBar = ({ history }) => {
 									? "link selected"
 									: "link"
 							}
-							onClick={() => {
-								user.type === "doctor"
-									? history.push("/dashboardDoc")
-									: history.push("/dashboard");
-							}}>
+							onClick={() => {history.push("/dashboard");}}>
 							Dashboard
 						</div>
 						<div

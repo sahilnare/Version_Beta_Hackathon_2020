@@ -3,6 +3,6 @@ from wtforms import StringField, SubmitField
 from wtforms.validators import DataRequired, Length
 
 class Message(FlaskForm):
-    message = StringField('answer', validators=[DataRequired()])
-    submit = SubmitField('send')
-    clear = SubmitField('clear')
+    message = StringField('Your answer:', validators=[DataRequired()])
+    submit = SubmitField('Send')
+    clear = SubmitField('Clear')

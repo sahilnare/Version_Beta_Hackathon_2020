@@ -30,7 +30,7 @@ router.post('/login', (req, res) => {
     const { email, password } = req.body;
 
     if(email in userData) {
-      if(userData[email][password] === password) {
+      if(userData[email]["password"] === password) {
         res.json(userData[email]);
       }
       else {
