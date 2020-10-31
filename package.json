@@ -8,8 +8,8 @@
     "start": "node src/server/index.js",
     "client": "webpack-dev-server --mode development --devtool inline-source-map --hot",
     "server": "nodemon src/server/index.js",
-    "dev": "concurrently \"yarn run server\" \"yarn run client\"",
-    "heroku-prebuild": "yarn run build"
+    "dev": "concurrently \"npm run server\" \"npm run client\"",
+    "heroku-prebuild": "npm run build"
   },
   "author": "Pied Piper",
   "license": "ISC",
