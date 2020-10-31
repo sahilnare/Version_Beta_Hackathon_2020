@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import './app.css';
 import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+import axios from 'axios';
 
 import Home from './pages/Home';
 import Login from './pages/Login';
@@ -18,7 +19,8 @@ export default class App extends Component {
     this.state = {
       message: '',
       isAuthenticated: false,
-      username: ''
+      username: '',
+      errors: ''
     }
   }
 
@@ -26,7 +28,16 @@ export default class App extends Component {
   }
 
   login = (cred) => {
-    this.setState({username: cred.username, isAuthenticated: true});
+    axios.post('/api/auth/login', cred, {
+      headers: {
+        "Content-Type": "application/json"
+      }
+    }).then(res => {
+      console.log(res.data);
+      this.setState({isAuthenticated: true});
+    }).catch(err => {
+      console.log(err.response.data);
+    });
   }
 
   signup = (cred) => {

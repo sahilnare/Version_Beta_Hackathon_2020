@@ -5,15 +5,15 @@ const path = require("path");
 const cors = require("cors");
 const app = express();
 
+const authRouter = require('./routes/auth');
+
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(cors());
 
-app.use(express.static('dist'));
+app.use('/api/auth', authRouter);
 
-app.get('/api/getMessage', (req, res) => {
-  res.send({ message: 'Connected to backend' });
-});
+app.use(express.static('dist'));
 
 app.use(express.static(path.join("dist")));
 

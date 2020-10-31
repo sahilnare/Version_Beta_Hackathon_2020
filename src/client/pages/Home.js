@@ -4,15 +4,8 @@ import { Link } from 'react-router-dom';
 const Home = ({history, message}) => {
 
   const cta = (user) => {
-		if (!user) {
-			history.push("/signup");
-		} else {
-			if (user.type === "user") history.push("/dashboard");
-			else history.push("/dashboardDoc");
-		}
+		history.push("/signup");
 	};
-
-  const user = null;
 
   return (
     <React.Fragment>
@@ -32,8 +25,8 @@ const Home = ({history, message}) => {
   							<br />Patients can book appointments
   							and can get themeselves checked online and get prescribed.
   						</p>
-  						<button className="primary cta" onClick={() => cta(user)}>
-  							{user ? "Go To Dashboard" : "Get Started"}
+  						<button className="primary cta" onClick={() => cta()}>
+  							"Get Started"
   						</button>
   					</div>
   					<div className="right">

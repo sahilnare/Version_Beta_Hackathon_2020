@@ -6,7 +6,7 @@ class Login extends Component {
   constructor() {
     super();
     this.state = {
-      username: '',
+      email: '',
       password: '',
       error: false
     }
@@ -19,12 +19,12 @@ class Login extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    if(this.state.username.length === 0) {
+    if(this.state.email.length === 0) {
       this.setState({error: true});
     }
     else {
       this.setState({error: false});
-      this.props.login({username: this.state.username});
+      this.props.login({email: this.state.email, password: this.state.password});
     }
   }
 
@@ -52,13 +52,13 @@ class Login extends Component {
     			<div className="main-login">
     				<h1>Login</h1>
     				<div className="login-form">
-    					<label htmlFor="username">Username</label>
+    					<label htmlFor="email">Email</label>
               <input
                  type="text"
                  onChange={this.handleChange}
-                 name="username"
-                 value={this.state.username}
-                 id="username"
+                 name="email"
+                 value={this.state.email}
+                 id="email"
                />
     					<label htmlFor="pass">Password</label>
               <input
