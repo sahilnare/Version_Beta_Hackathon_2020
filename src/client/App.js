@@ -5,9 +5,10 @@ import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
 import Home from './pages/Home';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
+import SignUp from './pages/Signup';
 
 import Navbar from "./components/Navbar";
-// import Footer from "./components/Footer";
+import Footer from "./components/Footer";
 
 export default class App extends Component {
   constructor() {
@@ -26,6 +27,10 @@ export default class App extends Component {
   }
 
   login = (cred) => {
+    this.setState({username: cred.username, isAuthenticated: true});
+  }
+
+  signup = (cred) => {
     this.setState({username: cred.username, isAuthenticated: true});
   }
 
@@ -52,7 +57,13 @@ export default class App extends Component {
               exact={true}
               render={(props) => !isAuthenticated ? <Login login={this.login} {...props} /> : <Redirect to='/dashboard' />}
             />
+            <Route
+              path='/signup'
+              exact={true}
+              render={(props) => !isAuthenticated ? <Signup signup={this.signup} {...props} /> : <Redirect to='/dashboard' />}
+            />
           </Switch>
+          <Footer />
         </BrowserRouter>
       </div>
     );
