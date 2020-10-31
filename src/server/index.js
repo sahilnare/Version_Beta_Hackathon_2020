@@ -15,10 +15,10 @@ app.get('/api/getMessage', (req, res) => {
   res.send({ message: 'Connected to backend' });
 });
 
-// app.use(express.static(path.join("dist")));
-//
-// app.get("*", (req, res) => {
-// 	res.sendFile(path.join("dist", "index.html"), {root: path.join(__dirname, "..", "..")});
-// });
+app.use(express.static(path.join("dist")));
+
+app.get("*", (req, res) => {
+	res.sendFile(path.join("dist", "index.html"), {root: path.join(__dirname, "..", "..")});
+});
 
 app.listen(port, () => console.log(`Listening on port ${port}!`));

@@ -7,6 +7,7 @@ import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Chatbot from './pages/features/Chatbot';
+import DoctorChat from './pages/features/DoctorChat';
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -15,16 +16,13 @@ export default class App extends Component {
   constructor() {
     super();
     this.state = {
-      message: null,
+      message: '',
       isAuthenticated: false,
-      username: null
+      username: ''
     }
   }
 
   componentDidMount() {
-    fetch('/api/getMessage')
-      .then(res => res.json())
-      .then(res => this.setState({ message: res.message }));
   }
 
   login = (cred) => {
@@ -53,6 +51,16 @@ export default class App extends Component {
               render={(props) => !isAuthenticated ? <Home message={message} {...props} /> : <Redirect to='/dashboard' />}
             />
             <Route
+              path='/dashboard/chatbot'
+              exact={true}
+              render={(props) => isAuthenticated ? <Chatbot {...props} /> : <Redirect to='/login' />}
+            />
+            <Route
+              path='/dashboard/doctorchat'
+              exact={true}
+              render={(props) => isAuthenticated ? <DoctorChat {...props} /> : <Redirect to='/login' />}
+            />
+            <Route
               path='/dashboard'
               exact={true}
               render={(props) => isAuthenticated ? <Dashboard {...props} /> : <Redirect to='/login' />}
@@ -66,11 +74,6 @@ export default class App extends Component {
               path='/signup'
               exact={true}
               render={(props) => !isAuthenticated ? <Signup signup={this.signup} {...props} /> : <Redirect to='/dashboard' />}
-            />
-            <Route
-              path='/dashboard/chatbot'
-              exact={true}
-              render={(props) => isAuthenticated ? <Chatbot {...props} /> : <Redirect to='/login' />}
             />
           </Switch>
           <Footer />
