@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 
-class Login extends Component {
+class SignUp extends Component {
 
   constructor() {
     super();
@@ -36,7 +36,7 @@ class Login extends Component {
           <div className="top">
             <Link to='/'>
               <div className="logo">
-                <h1>HealthBridge</h1>
+                <h1>Pied Piper</h1>
               </div>
             </Link>
             <p>
@@ -116,4 +116,4 @@ class Login extends Component {
   }
 }
 
-export default Login;
+export default SignUp;

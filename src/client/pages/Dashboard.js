@@ -17,7 +17,7 @@ class Dashboard extends Component {
     		imageAlt: "Heart Icon",
     		desc:
     			"Answer simple questions and get to know which disease you might have based on the symptoms",
-    		link: "/dashboard/cancer",
+    		link: "/dashboard/chatbot",
     	},
     	{
     		title: "Communicate with Doctors",
@@ -25,7 +25,7 @@ class Dashboard extends Component {
     		imageAlt: "Face Icon",
     		desc:
     			"Communicate with a doctor online through video call and sharing your medical history",
-    		link: "/dashboard/pneumonia",
+    		link: "/dashboard/doctorchat",
     	},
     	{
     		title: "Save your medical history online",
@@ -33,7 +33,7 @@ class Dashboard extends Component {
     		imageAlt: "Medicine Icon",
     		desc:
     			"Share your medical history online so that it's easier for doctors to access it and diagnose you accordingly",
-    		link: "/dashboard/medicine",
+    		link: "/dashboard/medical",
     	},
     	{
     		title: "Book An Appointment",
@@ -41,22 +41,7 @@ class Dashboard extends Component {
     		imageAlt: "Doctor Icon",
     		desc:
     			"Patients can book online appointments with a specific doctor and can get prescription afterwards.",
-    		link: "/dashboard/doctor",
-    	},
-    	{
-    		title: "Heart Health Prediction",
-    		image: require("../assets/icons/heart.png"),
-    		imageAlt: "Heart Icon",
-    		desc:
-    			"Patients can know the health of their heart by providing very basic details.",
-    		link: "/dashboard/heart",
-    	},
-    	{
-    		title: "Plasma Donation",
-    		image: require("../assets/icons/covid.png"),
-    		imageAlt: "Earth Icon",
-    		desc: "Patients can get to know the people for plasma.",
-    		link: "/dashboard/covid",
+    		link: "/dashboard/appointment",
     	},
     ];
 

@@ -491,7 +491,7 @@ button.primary {
   background: #ff5e5e;
 }
 
-.Pneumonia .container {
+.Chatbox .container {
   height: 70vh;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -508,16 +508,21 @@ button.primary {
   align-items: center;
 }
 
-.Pneumonia .container h1,
-.Pneumonia .container h3 {
+.Chatbot .container .chatboxcontainer {
+  width: 500px;
+  margin: 30px auto;
+}
+
+.Chatbox .container h1,
+.Chatbox .container h3 {
   color: #ffc56d;
 }
 
-.Pneumonia .container p {
+.Chatbox .container p {
   margin-top: 20px;
 }
 
-.Pneumonia .container button {
+.Chatbox .container button {
   background: #ffc56d;
 }
 

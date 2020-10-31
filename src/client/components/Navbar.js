@@ -6,7 +6,7 @@ const NavBar = ({ history }) => {
 	const url = String(history.location.pathname);
 
 	const logOut = () => {
-		history.push("/");
+		this.props.logout();
 	};
 
   const user = null;
