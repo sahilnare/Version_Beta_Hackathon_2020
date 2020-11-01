@@ -12,6 +12,7 @@ import DoctorChat from './pages/features/DoctorChat';
 import DoctorList from './pages/features/DoctorList';
 import Covid from './pages/features/Covid';
 import Disease from './pages/features/Disease';
+import History from './pages/features/History';
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -40,6 +41,7 @@ export default class App extends Component {
       this.setState({user: res.data, isAuthenticated: true});
     }).catch(err => {
       console.log(err.response.data);
+      this.setState({errors: err.response.data});
     });
   }
 
@@ -94,9 +96,14 @@ export default class App extends Component {
               render={(props) => isAuthenticated ? <Disease {...props} /> : <Redirect to='/login' />}
             />
             <Route
+              path='/dashboard/medical'
+              exact
+              render={(props) => isAuthenticated ? <History {...props} /> : <Redirect to='/login' />}
+            />
+            <Route
               path='/login'
               exact
-              render={(props) => !isAuthenticated ? <Login login={this.login} {...props} /> : <Redirect to='/dashboard' />}
+              render={(props) => !isAuthenticated ? <Login errors={this.state.errors} login={this.login} {...props} /> : <Redirect to='/dashboard' />}
             />
             <Route
               path='/signup'

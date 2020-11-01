@@ -74,6 +74,12 @@ class Login extends Component {
     						Log In
     					</button>
     				</div>
+            <div className="error-container">
+    					{this.props.errors &&
+    							<div className="error">
+    								{this.props.errors}
+    							</div>}
+    				</div>
     			</div>
     		</div>
       </React.Fragment>
