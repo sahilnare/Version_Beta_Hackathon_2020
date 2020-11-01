@@ -38,7 +38,7 @@ class Covid extends Component  {
 	};
 
   handleAudioStop = (data) => {
-      console.log(data)
+      console.log(data);
       this.setState({ audioDetails: data });
   }
 
@@ -46,6 +46,7 @@ class Covid extends Component  {
       var newfile = this.blobToFile(file, 'Covid_audio_sample.mp3');
       // var newfile = new File([file], "Covid_audio_sample.mp3", {lastModified: 1534584790000});
       console.log(newfile);
+      console.log(this.state.audioDetails.url);
   }
 
   handleRest = () => {
@@ -69,6 +70,26 @@ class Covid extends Component  {
       return theBlob;
   }
 
+  downloadBlob = () => {
+
+    const url = this.state.audioDetails.url;
+
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'Covid_audio_sample.mp3';
+
+    const clickHandler = () => {
+      setTimeout(() => {
+        URL.revokeObjectURL(url);
+        this.removeEventListener('click', clickHandler);
+      }, 150);
+    };
+
+    a.click();
+
+    return a;
+  }
+
   render() {
     return (
   		<div className="Pneumonia">
@@ -90,7 +111,10 @@ class Covid extends Component  {
             handleRest={() => this.handleRest()}
           />
 
-  				<button className="primary" onClick={() => getResults()}>
+        {this.state.audioDetails.blob && <button style={{marginRight: "20px"}} className="primary" onClick={this.downloadBlob}>
+  					Download Audio
+  				</button>}
+          <button className="primary" onClick={() => getResults()}>
   					Get results
   				</button>
   			</div>
