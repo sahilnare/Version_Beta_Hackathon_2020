@@ -18,7 +18,7 @@
 		<main class="content">
 			<menu id="small-screen-menu">
 
-				
+
 				<div class="switch-btn" id="cf-toggle-btn" data-label="Enable Conversational Form" data-label-toggled="Disable Conversational Form">
 					<label class="switch">
 						<input type="checkbox" onclick="window.conversationalFormExamples.toggleConversation(event)">
@@ -27,10 +27,10 @@
 				</div>
 			</menu>
 
-			
+
 
 			<section id="info" role="info">
-				
+
 
 				<article>
 					<h1 id="writer">
@@ -42,7 +42,7 @@
 			<section role="form">
 				<div class="form-outer">
 
-				
+
 					<form id="form">
 						<input
 							id="123"
@@ -50,7 +50,7 @@
 							type="text"
 							cf-questions="Good Morning Sahil, I will help you to fill your daily health record"
                         />
-					
+
 					<form id="form">
 						<input
 							id="123"
@@ -58,7 +58,7 @@
 							type="text"
 							cf-questions="How are you feeling today?"
                         />
-                        
+
                         <form id="form">
                             <input
                                 id="123"
@@ -66,7 +66,7 @@
                                 type="text"
                                 cf-questions="Did you took your medication?"
                         />
-                        
+
                         <form id="form">
                             <input
                                 id="123"
@@ -74,7 +74,7 @@
                                 type="text"
                                 cf-questions="Your weight"
 						/>
-						
+
 						<form id="form">
                             <input
                                 id="123"
@@ -88,7 +88,7 @@
                                 id="123"
                                 name="123"
                                 type="text"
-                                cf-questions="Your blood sugar level"
+                                cf-questions="Your blood sugar level (in mg/dL)"
                         />
 
                         <form id="form">
@@ -106,7 +106,7 @@
                                 type="text"
                                 cf-questions="Do you want to contact a doctor?"
 						/>
-						
+
 						<form id="form">
                             <input
                                 id="123"
@@ -116,12 +116,12 @@
                         />
 
 					</form>
-		
+
 				</div>
 			</section>
 
 			<section id="cf-context" role="cf-context" cf-context>
-				
+
 			</section>
 		</main>
 
@@ -132,7 +132,7 @@
 					recognition = null,
 					msg = null,
 					SpeechRecognition = null;
-				
+
 				try{
 					SpeechRecognition = SpeechRecognition || webkitSpeechRecognition;
 				}catch(e){
@@ -157,18 +157,18 @@
 						},
 						input: function(resolve, reject, mediaStream) {
 							console.log("voice: INPUT")
-			
-							
+
+
 							if(recognition)
 								recognition.stop();
 
 							recognition = new SpeechRecognition(),
 								finalTranscript = '';
 
-							recognition.continuous = false; 
-							recognition.interimResults = false; 
-							
-							
+							recognition.continuous = false;
+							recognition.interimResults = false;
+
+
 							recognition.onresult = function(event) {
 								for (var i = event.resultIndex; i < event.results.length; ++i) {
 									if (event.results[i].isFinal) {
@@ -201,7 +201,7 @@
 
 					submitCallback: function(){
 						console.log("voice: Form submitted...", conversationalForm.getFormData(true));
-						window.location.replace("main.html");
+
 					}
 				});
 

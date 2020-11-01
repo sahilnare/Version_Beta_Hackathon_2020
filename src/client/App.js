@@ -50,7 +50,7 @@ export default class App extends Component {
   }
 
   render() {
-    const { message, isAuthenticated, username } = this.state;
+    const { message, isAuthenticated } = this.state;
     return (
       <div className="App">
         <BrowserRouter>
@@ -58,37 +58,37 @@ export default class App extends Component {
           <Switch>
             <Route
               path='/'
-              exact={true}
+              exact
               render={(props) => !isAuthenticated ? <Home message={message} {...props} /> : <Redirect to='/dashboard' />}
             />
             <Route
+              path='/dashboard'
+              exact
+              render={(props) => isAuthenticated ? <Dashboard user={this.state.user} {...props} /> : <Redirect to='/login' />}
+            />
+            <Route
               path='/dashboard/chatbot'
-              exact={true}
+              exact
               render={(props) => isAuthenticated ? <Chatbot {...props} /> : <Redirect to='/login' />}
             />
             <Route
               path='/dashboard/doctorchat'
-              exact={true}
+              exact
               render={(props) => isAuthenticated ? <DoctorChat {...props} /> : <Redirect to='/login' />}
             />
             <Route
               path='/dashboard/covid'
-              exact={true}
+              exact
               render={(props) => isAuthenticated ? <Covid {...props} /> : <Redirect to='/login' />}
             />
             <Route
-              path='/dashboard'
-              exact={true}
-              render={(props) => isAuthenticated ? <Dashboard user={this.state.user} {...props} /> : <Redirect to='/login' />}
-            />
-            <Route
               path='/login'
-              exact={true}
+              exact
               render={(props) => !isAuthenticated ? <Login login={this.login} {...props} /> : <Redirect to='/dashboard' />}
             />
             <Route
               path='/signup'
-              exact={true}
+              exact
               render={(props) => !isAuthenticated ? <Signup signup={this.signup} {...props} /> : <Redirect to='/dashboard' />}
             />
           </Switch>

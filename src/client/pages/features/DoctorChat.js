@@ -3,7 +3,7 @@ import { log } from '../../components/doctorchat/utils'
 import "./doctorchat.css";
 import {startBasicCall, leaveCall} from '../../components/doctorchat/Agora_RTC';
 
-export default function Home() {
+export default function Home(props) {
 
   const [appid, setAppid] = useState('1f8602c1ee6b4b2aae034969f8b1e16c')
   const [channel, setChannel] = useState('piedpiper')
@@ -61,6 +61,9 @@ export default function Home() {
   //   });
   // };
 
+  const dataProp = props.location.dataProp;
+  console.log(dataProp);
+
   return (
     <div className='home-box'>
       <div className='title-box'>
@@ -77,6 +80,19 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {dataProp && <div className="databox">
+        <div className="cards">
+          <div className="card">
+            <p>The patient is feeling: {dataProp.data[0]}</p>
+            <p>Did the patient take their medication: {dataProp.data[1]}</p>
+            <p>Weight: {dataProp.data[2]} kg</p>
+            <p>Sleep last night: {dataProp.data[3]} hours</p>
+            <p>Blood Sugar: {dataProp.data[4]} mg/dL</p>
+            <p>Is the patient sick: {dataProp.data[5]}</p>
+          </div>
+        </div>
+      </div>}
+
       <div className='video-agora-box'>
         <div id='video-agora-local'></div>
       </div>
