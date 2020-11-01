@@ -43,7 +43,9 @@ class Covid extends Component  {
   }
 
   handleAudioUpload = (file) => {
-      console.log(file);
+      var newfile = this.blobToFile(file, 'Covid_audio_sample.mp3');
+      // var newfile = new File([file], "Covid_audio_sample.mp3", {lastModified: 1534584790000});
+      console.log(newfile);
   }
 
   handleRest = () => {
@@ -59,6 +61,13 @@ class Covid extends Component  {
       };
       this.setState({ audioDetails: reset });
     }
+
+  blobToFile = (theBlob, fileName) => {
+      //A Blob() is almost a File() - it's just missing the two properties below which we will add
+      theBlob.lastModifiedDate = new Date();
+      theBlob.name = fileName;
+      return theBlob;
+  }
 
   render() {
     return (
