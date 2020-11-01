@@ -23,7 +23,7 @@ const Home = ({history, message}) => {
   						<p>
   							A service to connect patients and doctors.
   							<br />Patients can book appointments
-  							and can get themeselves checked online and get prescribed.
+  							and can get themeselves checked online.
   						</p>
   						<button className="primary cta" onClick={() => cta()}>
   							"Get Started"
@@ -45,8 +45,7 @@ const Home = ({history, message}) => {
   							<div className="content">
   								<h4>Disease Predicition</h4>
   								<p>
-  									Predicition of Breast Cancer and Pneumonia from X-RAY Scans and also
-  									patients can know the health status of their heart too.
+  									Predicition of any disease based on your symptoms with the help of a chatbot.
   								</p>
   							</div>
   						</div>
@@ -56,10 +55,9 @@ const Home = ({history, message}) => {
   								alt="Heart Icon"
   							/>
   							<div className="content">
-  								<h4>General Name of Medicines</h4>
+  								<h4>Personal Health Assistant</h4>
   								<p>
-  								Making brand names of medicines available to the patient
-  								by providing a generic name of the medicine, which are far cheaper and easily available
+  								Store your health records using voice based personal health assistant.
   								</p>
   							</div>
   						</div>
@@ -71,7 +69,7 @@ const Home = ({history, message}) => {
   							<div className="content">
   								<h4>Book Appointment</h4>
   								<p>
-  								Patients can book online appointments with a specific doctor and can get prescription afterwards
+  								Patients can book online appointments with a specific doctor.
   								</p>
   							</div>
   						</div>

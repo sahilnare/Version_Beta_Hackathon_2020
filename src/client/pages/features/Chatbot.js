@@ -12,9 +12,9 @@ const ChatbotPrediction = () => {
 		<div className="Chatbox">
 			<div className="container">
 				<div>
-					<h1>Chatbot for Disease Prediction</h1>
+					<h1>Chatbot for Booking Appointment</h1>
 					<p className="content">
-						Prediction of Diseases from answering questions about the symptoms.
+						Answer some questions to get you started with your appointment.
 					</p>
 				</div>
         <div className="chatboxcontainer">

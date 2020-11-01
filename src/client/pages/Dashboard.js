@@ -11,12 +11,12 @@ class Dashboard extends Component {
   render() {
 
     const services = [
-    	{
-    		title: "Chatbot for Disease Prediction",
+      {
+    		title: "Book An Appointment with Chatbot",
     		image: require("../assets/icons/heart.png"),
-    		imageAlt: "Heart Icon",
+    		imageAlt: "Doctor Icon",
     		desc:
-    			"Answer simple questions and get to know which disease you might have based on the symptoms",
+    			"Patients can book online appointments with a specific doctor and can get prescription afterwards.",
     		link: "/dashboard/chatbot",
     	},
     	{
@@ -25,23 +25,15 @@ class Dashboard extends Component {
     		imageAlt: "Face Icon",
     		desc:
     			"Communicate with a doctor online through video call and sharing your medical history",
-    		link: "/dashboard/doctorchat",
+    		link: "/dashboard/doctorlist",
     	},
-    	{
-    		title: "Save your medical history online",
-    		image: require("../assets/icons/medicine.png"),
+      {
+    		title: "Disease Predicition with Chatbot",
+    		image: require("../assets/icons/doctor.png"),
     		imageAlt: "Medicine Icon",
     		desc:
-    			"Share your medical history online so that it's easier for doctors to access it and diagnose you accordingly",
-    		link: "/dashboard/medical",
-    	},
-    	{
-    		title: "Book An Appointment",
-    		image: require("../assets/icons/doctor.png"),
-    		imageAlt: "Doctor Icon",
-    		desc:
-    			"Patients can book online appointments with a specific doctor and can get prescription afterwards.",
-    		link: "/dashboard/appointment",
+    			"Predicition of any disease based on your symptoms with the help of a chatbot.",
+    		link: "/dashboard/disease",
     	},
       {
     		title: "Covid Detection by Cough",
@@ -49,6 +41,14 @@ class Dashboard extends Component {
     		imageAlt: "Earth Icon",
     		desc: "Patients can know whether they have a probabilty of having Covid-19 by recording their coughing audio.",
     		link: "/dashboard/covid",
+    	},
+      {
+    		title: "Save your medical history online",
+    		image: require("../assets/icons/medicine.png"),
+    		imageAlt: "Medicine Icon",
+    		desc:
+    			"Share your medical history online so that it's easier for doctors to access it and diagnose you accordingly",
+    		link: "/dashboard/medical",
     	},
     ];
 

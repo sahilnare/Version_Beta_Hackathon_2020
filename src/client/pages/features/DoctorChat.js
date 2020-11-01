@@ -81,16 +81,12 @@ export default function Home(props) {
         </div>
       </div>
       {dataProp && <div className="databox">
-        <div className="cards">
-          <div className="card">
             <p>The patient is feeling: {dataProp.data[0]}</p>
             <p>Did the patient take their medication: {dataProp.data[1]}</p>
             <p>Weight: {dataProp.data[2]} kg</p>
             <p>Sleep last night: {dataProp.data[3]} hours</p>
             <p>Blood Sugar: {dataProp.data[4]} mg/dL</p>
             <p>Is the patient sick: {dataProp.data[5]}</p>
-          </div>
-        </div>
       </div>}
 
       <div className='video-agora-box'>

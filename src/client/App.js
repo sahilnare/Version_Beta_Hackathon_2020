@@ -9,7 +9,9 @@ import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
 import Chatbot from './pages/features/Chatbot';
 import DoctorChat from './pages/features/DoctorChat';
+import DoctorList from './pages/features/DoctorList';
 import Covid from './pages/features/Covid';
+import Disease from './pages/features/Disease';
 
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
@@ -77,9 +79,19 @@ export default class App extends Component {
               render={(props) => isAuthenticated ? <DoctorChat {...props} /> : <Redirect to='/login' />}
             />
             <Route
+              path='/dashboard/doctorlist'
+              exact
+              render={(props) => isAuthenticated ? <DoctorList {...props} /> : <Redirect to='/login' />}
+            />
+            <Route
               path='/dashboard/covid'
               exact
               render={(props) => isAuthenticated ? <Covid {...props} /> : <Redirect to='/login' />}
+            />
+            <Route
+              path='/dashboard/disease'
+              exact
+              render={(props) => isAuthenticated ? <Disease {...props} /> : <Redirect to='/login' />}
             />
             <Route
               path='/login'
