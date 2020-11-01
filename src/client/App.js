@@ -7,6 +7,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Signup from './pages/Signup';
 import Dashboard from './pages/Dashboard';
+import Profile from './pages/Profile';
 import Chatbot from './pages/features/Chatbot';
 import DoctorChat from './pages/features/DoctorChat';
 import DoctorList from './pages/features/DoctorList';
@@ -109,6 +110,11 @@ export default class App extends Component {
               path='/signup'
               exact
               render={(props) => !isAuthenticated ? <Signup signup={this.signup} {...props} /> : <Redirect to='/dashboard' />}
+            />
+            <Route
+              path='/profile'
+              exact
+              render={(props) => isAuthenticated ? <Profile user={this.state.user} signup={this.signup} {...props} /> : <Redirect to='/login' />}
             />
           </Switch>
           <Footer />
