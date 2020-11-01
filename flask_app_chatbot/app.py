@@ -43,7 +43,7 @@ def foo():
 
     print(len(cols))
 
-    #global variable 
+    #global variable
 
     session['tree_'] = classifier.tree_
     session['feature_name'] = [
@@ -55,7 +55,7 @@ def foo():
     name = session['feature_name'][session['node']]
     session['messages'].append(name + "?")
 
-    return "Hello wold!"
+    return "<h1>Hello wold!</h1><a href='/predict'>Click here to start</a>"
 
 @app.route("/predict", methods = ['GET', 'POST'])
 def chat_page():
@@ -105,10 +105,10 @@ def chat_page():
                 temp = session['tree_'].value[session['node']][0].nonzero()
                 present_disease = le.inverse_transform(temp[0])
                 session['messages'].append( "You may have " +  present_disease )
-                red_cols = session['dimensionality_reduction'].columns 
+                red_cols = session['dimensionality_reduction'].columns
                 symptoms_given = red_cols[session['dimensionality_reduction'].loc[present_disease].values[0].nonzero()]
                 session['messages'].append("symptoms present  " + str(list(session['symptoms_present'])))
-                session['messages'].append("symptoms given "  +  str(list(symptoms_given)) )  
+                session['messages'].append("symptoms given "  +  str(list(symptoms_given)) )
                 confidence_level = (1.0*len(session['symptoms_present']))/len(symptoms_given)
                 session['messages'].append("confidence level is " + str(confidence_level))
                 session['node'] = 0
@@ -118,7 +118,7 @@ def chat_page():
 
 def print_disease(node):
     node = node[0]
-    val  = node.nonzero() 
+    val  = node.nonzero()
     disease = le.inverse_transform(val[0])
     return disease
 
