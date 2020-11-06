@@ -5,9 +5,9 @@ import {startBasicCall, leaveCall} from '../../components/doctorchat/Agora_RTC';
 
 export default function Home(props) {
 
-  const [appid, setAppid] = useState('1f8602c1ee6b4b2aae034969f8b1e16c')
+  const [appid, setAppid] = useState('1f8602c1ee6b4b2aae034969f8b1e16c ')
   const [channel, setChannel] = useState('piedpiper')
-  const [token, setToken] = useState('0061f8602c1ee6b4b2aae034969f8b1e16cIACnBvx6Fe8jYFIfDAbEYdAObozI/or3IHhgoKdbLjBAhwH9ad4AAAAAEABO10qJr9KeXwEAAQCv0p5f')
+  const [token, setToken] = useState('0061f8602c1ee6b4b2aae034969f8b1e16cIAC4HaXt1yQsyoaWbAGmzsJmxhZkYykEPrPn9egBGZqs5QH9ad4AAAAAEAAT20h752imXwEAAQDoaKZf')
   const [isjoin, setIsJoin] = useState(false)
 
 
