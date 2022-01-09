@@ -7,7 +7,7 @@ export default function Home(props) {
 
   const [appid, setAppid] = useState('1f8602c1ee6b4b2aae034969f8b1e16c')
   const [channel, setChannel] = useState('piedpiper')
-  const [token, setToken] = useState('0061f8602c1ee6b4b2aae034969f8b1e16cIACdcXNVukaNx0W+65ojsh3fdALSJXE72z5N9R5fWohPMAH9ad4AAAAAEADr9jhXWA6NYAEAAQBYDo1g')
+  const [token, setToken] = useState('0061f8602c1ee6b4b2aae034969f8b1e16cIADIpfcQe7Zs9uluHPY6pIKNScIg9ZgkLGTgvxXqV5uhDgH9ad4AAAAAEACP0G4myKnbYQEAAQDIqdth')
   const [isjoin, setIsJoin] = useState(false)
 
 
