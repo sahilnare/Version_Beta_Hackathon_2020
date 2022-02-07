@@ -22,6 +22,14 @@ const userData = {
     "address" : "Lucknow, Uttar Pradesh, India",
     "phone" : 8332489435,
     "password": "nikhilkgautam"
+  },
+  "avisaini063@gmail.com": {
+    "name": "Avi Saini",
+    "age" : 21,
+    "blood_group" : "A+",
+    "address" : "Gurgaon, Haryana, India",
+    "phone" : 8332489435,
+    "password": "avisaini"
   }
 };
 
